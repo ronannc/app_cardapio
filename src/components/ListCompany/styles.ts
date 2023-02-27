@@ -1,8 +1,9 @@
 import styled from 'styled-components/native';
 
 export const ContainerTouchable = styled.TouchableOpacity`
-  margin-right: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 `;
 
 export const CoverImageBack = styled.ImageBackground`
