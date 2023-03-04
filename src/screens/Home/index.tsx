@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {Container} from './styles';
-import {FlatList, TextInput} from 'react-native';
-import {Header} from "../../components/Header";
+import {Container, Search} from './styles';
+import {FlatList} from 'react-native';
+import {HeaderHome} from "../../components/HeaderHome";
 import {ListCompany, ListCompanyProps} from "../../components/ListCompany";
 import {useNavigation} from "@react-navigation/native";
 
@@ -17,15 +17,17 @@ export function Home() {
   
   useEffect(() => {
     console.log(text)
-    fetch(`http://192.168.0.72:8000/api/companies?search=${text}`)
-    .then(response => response.json())
-    .then(data => setCompany(data['data']))
-  }, []);
+    if (text != '') {
+      fetch(`http://192.168.0.125:8000/api/companies?search=${text}`)
+      .then(response => response.json())
+      .then(data => setCompany(data['data']))
+    }
+  }, [text]);
   
   return (
     <Container>
-      <Header title={'Seja bem vindo(a)!'} subTitle={'Escolha um menu:'}></Header>
-      <TextInput
+      <HeaderHome title={'Seja bem vindo(a)!'} subTitle={'Escolha um menu:'}></HeaderHome>
+      <Search
         onChangeText={setText}
         placeholder="Pesquise algum menu"
         value={text}

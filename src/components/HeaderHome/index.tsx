@@ -6,7 +6,7 @@ interface Props extends ViewProps {
   subTitle: string;
 }
 
-export function Header({title, subTitle, ...rest}: Props) {
+export function HeaderHome({title, subTitle, ...rest}: Props) {
   return (
     <Container>
       <Balon>

@@ -4,7 +4,7 @@ import {FlatList} from 'react-native';
 import {useRoute} from "@react-navigation/native";
 import {MenuParams} from "../../@types/navigation";
 import {ListMenu, ListMenuProps} from "../../components/ListMenu";
-import {Header} from "../../components/Header";
+import {HeaderMenu} from "../../components/HeaderMenu";
 
 export function Menu() {
   const route = useRoute();
@@ -13,13 +13,13 @@ export function Menu() {
   const [menu, setMenu] = useState<ListMenuProps[]>([])
   
   useEffect(() => {
-    fetch(`http://192.168.0.72:8000/api/company/${menuParams.id}/items-menu`)
+    fetch(`http://192.168.0.125:8000/api/company/${menuParams.id}/items-menu`)
     .then(response => response.json())
-    .then(data => setMenu(data['data']))
-  }, []);
+    .then(data => setMenu(data))
+  }, [menu]);
   return (
     <Container>
-      <Header title={menuParams.name} subTitle={menuParams.description}></Header>
+      <HeaderMenu title={menuParams.name} subTitle={menuParams.description}></HeaderMenu>
       <FlatList
         data={menu}
         renderItem={({item}) => (
