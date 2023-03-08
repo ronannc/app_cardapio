@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Container} from './styles';
-import {FlatList} from 'react-native';
+import {FlatList, StatusBar} from 'react-native';
 import {useRoute} from "@react-navigation/native";
 import {MenuParams} from "../../@types/navigation";
 import {ListMenu, ListMenuProps} from "../../components/ListMenu";
@@ -17,9 +17,11 @@ export function Menu() {
     .then(response => response.json())
     .then(data => setMenu(data))
   }, [menu]);
+  
   return (
     <Container>
-      <HeaderMenu title={menuParams.name} subTitle={menuParams.description}></HeaderMenu>
+      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent></StatusBar>
+      <HeaderMenu data={menuParams}></HeaderMenu>
       <FlatList
         data={menu}
         renderItem={({item}) => (

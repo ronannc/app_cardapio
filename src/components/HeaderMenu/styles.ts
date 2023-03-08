@@ -1,29 +1,43 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.SafeAreaView`
-  background-color: black;
-  border-bottom-right-radius: 40px;
+export const ContainerSafeAreaView = styled.SafeAreaView`
   margin-bottom: 10px;
 `;
 
-export const Balon = styled.View`
-  width: 70%;
-  margin-top: 60px;
-  padding: 30px;
-  background-color: darkorange;
+export const ContainerBlack = styled.View`
+  background-color: black;
   border-bottom-right-radius: 40px;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  height: 60px;
 `;
 
-export const Title = styled.Text`
-  color: ${({theme}) => theme.COLORS.BACKGROUND};
-  font-size: ${({theme}) => theme.FONT_SIZE.LG};
+export const ContainerFlexRow = styled.View`
+  flex-direction: row;
+  margin: 5px;
+`;
+
+export const Container = styled.View`
+  flex: 1;
+`;
+
+export const ContainerCenter = styled.View`
+  align-items: center;
+`;
+
+export const CoverImageBack = styled.ImageBackground`
+  width: 100px;
+  height: 100px;
+  border-radius: 80px;
+  overflow: hidden;
+`;
+
+export const Name = styled.Text`
+  color: ${({theme}) => theme.COLORS.TEXT};
+  font-size: ${({theme}) => theme.FONT_SIZE.SM};
   font-family: ${({theme}) => theme.FONTS_FAMILY.MEDIUM};
 `;
 
-export const SubTitle = styled.Text`
-  color: ${({theme}) => theme.COLORS.BACKGROUND};
+export const Description = styled.Text`
+  color: ${({theme}) => theme.COLORS.TEXT};
   font-size: ${({theme}) => theme.FONT_SIZE.SM};
   font-family: ${({theme}) => theme.FONTS_FAMILY.REGULAR};
 `;

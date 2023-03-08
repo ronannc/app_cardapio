@@ -7,6 +7,8 @@ export interface ListCompanyProps {
     id: number;
     name: string;
     description: string;
+    star_hours: string;
+    finish_hours: string;
     url_logo: ImageSourcePropType;
 }
 

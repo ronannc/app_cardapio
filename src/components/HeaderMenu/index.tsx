@@ -1,18 +1,40 @@
 import {ViewProps} from "react-native";
-import {Balon, Container, SubTitle, Title} from "./styles";
+import {
+  Container,
+  ContainerBlack,
+  ContainerCenter,
+  ContainerFlexRow,
+  ContainerSafeAreaView,
+  CoverImageBack,
+  Description,
+  Name,
+} from "./styles";
+import {ListCompanyProps} from "../ListCompany";
 
 interface Props extends ViewProps {
-  title: string;
-  subTitle: string;
+  data: ListCompanyProps
 }
 
-export function HeaderMenu({title, subTitle, ...rest}: Props) {
+export function HeaderMenu({data, ...rest}: Props) {
   return (
-    <Container>
-      <Balon>
-        <Title>{title}</Title>
-        <SubTitle>{subTitle}</SubTitle>
-      </Balon>
-    </Container>
+    <ContainerSafeAreaView>
+      <ContainerBlack/>
+      
+      <ContainerFlexRow>
+        <Container></Container>
+        <Container>
+          <ContainerCenter>
+            <CoverImageBack source={{uri: data.url_logo}}/>
+          </ContainerCenter>
+        </Container>
+        <Container><Description>Das {data.star_hours} ate {data.finish_hours}</Description></Container>
+      </ContainerFlexRow>
+      
+      <ContainerCenter>
+        <Name>{data.name}</Name>
+        <Description>{data.description}</Description>
+      </ContainerCenter>
+    </ContainerSafeAreaView>
+  
   )
 }

@@ -1,12 +1,27 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const ContainerText = styled.View`
+  flex: 2.5;
+  margin-right: 5px;
+`;
+export const ContainerImage = styled.View`
+  flex: 1.5;
+`;
+export const ContainerFlexRow = styled.View`
+  flex-direction: row;
   margin-bottom: 5px;
   margin-top: 5px;
   padding-bottom: 5px;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: gray;
+`;
+
+export const CoverImageBack = styled.ImageBackground`
+  width: 100%;
+  height: 90px;
+  border-radius: 20px;
+  overflow: hidden;
 `;
 
 export const NameText = styled.Text`

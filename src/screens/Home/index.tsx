@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Container, Search} from './styles';
-import {FlatList} from 'react-native';
+import {FlatList, StatusBar} from 'react-native';
 import {HeaderHome} from "../../components/HeaderHome";
 import {ListCompany, ListCompanyProps} from "../../components/ListCompany";
 import {useNavigation} from "@react-navigation/native";
@@ -11,21 +11,27 @@ export function Home() {
   
   const navigation = useNavigation();
   
-  function handleOpenMenu({id, name, description}: ListCompanyProps) {
-    navigation.navigate('menu', {id, name, description});
+  function handleOpenMenu({
+                            id,
+                            name,
+                            description,
+                            url_logo,
+                            star_hours,
+                            finish_hours
+                          }: ListCompanyProps) {
+    navigation.navigate('menu', {id, name, description, url_logo, star_hours, finish_hours});
   }
   
   useEffect(() => {
-    console.log(text)
     if (text != '') {
       fetch(`http://192.168.0.125:8000/api/companies?search=${text}`)
       .then(response => response.json())
       .then(data => setCompany(data['data']))
     }
   }, [text]);
-  
   return (
     <Container>
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent></StatusBar>
       <HeaderHome title={'Seja bem vindo(a)!'} subTitle={'Escolha um menu:'}></HeaderHome>
       <Search
         onChangeText={setText}
